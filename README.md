@@ -5,8 +5,8 @@ Link to the Overlead Draft:
 https://www.overleaf.com/5692182867qsmgzkstfjqp#3643ec
 
 Need to-do:
-- Edit .gitignore to ignore the downloaded images
-- Fix script to download UFDs
-- Steal code from Photom Lab to identify member stars and make CMDs :P
+DONE!  Edit .gitignore to ignore the downloaded images
+DONE!  Fix script to download UFDs
+In progress Steal code from Photom Lab to identify member stars and make CMDs :P
 
 
