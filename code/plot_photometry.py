@@ -27,6 +27,11 @@ import photutils as ph
 from fortranformat import FortranRecordReader as fread
 from numpy import int32, float64, zeros, array
 
+# declare some global variables
+UFD_NAMES = ['Leo IV','Hercules','Ursa Major I','Coma Berenices','Canes Venatici II','Bootes I']
+BANDS = ['F606W','F814W']
+
+
 class DSED_Isochrones:
     """Holds the contents of a Dartmouth isochrone file."""
 
@@ -105,14 +110,18 @@ if __name__ == '__main__':
 
     fig, axs = plt.subplot(nrows=2,ncols=3,figsize=(8.5,8.5))
 
-    for ax in axs:
-        mag_606w = data['MAG_F606W']
-        mag_814W = data['MAG_F814W']
+    for i, ax in enumerate(axs):
+
+        logging.info('Making plot for:{}'.format(UFD_NAMES[i]))
+        mag_606w = data[UFD_NAMES[i]]['MAG_F606W']
+        mag_814W = data[UFD_NAMES[i]]['MAG_F814W']
         color = mag_606w-mag_814W
 
+        logging.info('Making scatter plot...')
         ax.scatter(color,mag_814w,1,color='k',label='A118 Member Stars')
 
         # check on DM and A
+        logging.info('Plotting isochrones...')
         plot_one(iso,distance_modulus = 19.1,reddening = 0.02,ax=ax)
 
         ax.legend(loc='upper left',fontsize=18,scatterpoints=3)
@@ -124,6 +133,7 @@ if __name__ == '__main__':
         ax.set_ylabel('F814W',fontsize=18)
 
     plt.tight_layout()
+    plt.savefig('cmd.pdf',dpi=500)
     plt.show()
 
 
