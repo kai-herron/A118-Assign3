@@ -20,8 +20,8 @@ Need to-do:
 - Write paper:
     - intro (millie)
     - data (quinn)
-    - methods (sasha)
-    - discussion (millie)
+    - methods (sasha,kai,george)
+    - discussion (millie,sasha)
     - conclusion (kai)
 
 
